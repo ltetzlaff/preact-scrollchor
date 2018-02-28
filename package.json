@@ -11,13 +11,12 @@
     "npm": ">=3.0"
   },
   "scripts": {
-    "build-npm": "rimraf lib && mkdirp lib && babel src/ -d lib/",
-    "lint": "semistandard --fix --verbose | snazzy",
-    "testonly": "echo \"Error: no test specified\" && exit 1",
-    "test": "npm run lint && npm run testonly",
-    "prepare": "npm run build-npm",
-    "clean-install": "npmclean && npm install",
-    "format": "prettier-eslint --single-quote --write '**/*.+(js|jsx)'"
+    "prepare": "npm run buildOnce",
+    "build": "tsc --watch || true",
+    "buildOnce": "tsc",
+    "lint": "tslint --format stylish --project .",
+    "prettier": "prettier --config node_modules/tslint-lt/.prettierrc.yml --write \"{,!node_modules/}**/*.{ts,tsx}\"",
+    "test": "npm run buildOnce && npm run lint && npm run prettier"
   },
   "keywords": [
     "react",
@@ -36,15 +35,9 @@
     "requestanimationframe-timer": "^1.0.2"
   },
   "devDependencies": {
-    "babel-cli": "6.x.x",
-    "babel-plugin-transform-class-properties": "6.x.x",
-    "babel-plugin-transform-export-extensions": "6.x.x",
-    "babel-plugin-transform-object-rest-spread": "6.x.x",
-    "babel-preset-es2015": "6.x.x",
-    "babel-preset-react": "6.x.x",
-    "babel-preset-stage-3": "6.x.x",
-    "mkdirp": "*",
-    "react": "^15.5.4"
+    "react": "^15.5.4",
+    "tslint-lt": "^1.6.1",
+    "typescript": "^2.7.2"
   },
   "contributors": [
     "bySabi Files",
