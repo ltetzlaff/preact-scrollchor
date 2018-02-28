@@ -30,32 +30,25 @@
     "animate"
   ],
   "peerDependencies": {
-    "react": ">=15.0.0",
-    "fbjs": "*"
+    "react": ">=15.0.0"
   },
   "dependencies": {
     "requestanimationframe-timer": "^1.0.2"
   },
   "devDependencies": {
     "babel-cli": "6.x.x",
-    "babel-eslint": "7.x.x",
     "babel-plugin-transform-class-properties": "6.x.x",
     "babel-plugin-transform-export-extensions": "6.x.x",
     "babel-plugin-transform-object-rest-spread": "6.x.x",
     "babel-preset-es2015": "6.x.x",
     "babel-preset-react": "6.x.x",
     "babel-preset-stage-3": "6.x.x",
-    "fbjs": "*",
     "mkdirp": "*",
-    "prop-types": "^15.5.8",
-    "react": "^15.5.4",
-    "rimraf": "2.x.x",
-    "semistandard": "*",
-    "snazzy": "7.x.x"
+    "react": "^15.5.4"
   },
-  "semistandard": {
-    "parser": "babel-eslint"
-  },
-  "author": "bySabi Files",
+  "contributors": [
+    "bySabi Files",
+    "ltetzlaff"
+  ],
   "license": "ISC"
 }
