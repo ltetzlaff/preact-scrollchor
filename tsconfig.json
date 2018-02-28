@@ -1,0 +1,17 @@
+{
+    "compileOnSave": true,
+    "compilerOptions": {
+      "module": "none",
+      "moduleResolution": "node",
+      "target": "esnext",
+      "lib": [ "dom", "scripthost", "esnext" ],
+      "sourceMap": true,
+      "declaration": false,
+      "strict": true,
+      "suppressImplicitAnyIndexErrors": true,
+      "jsx": "react"
+    },
+    "include": [
+        "src/**/*"
+    ]
+}
