@@ -1,26 +1,31 @@
-import warning from 'fbjs/lib/warning';
-import { setTimeout } from 'requestanimationframe-timer';
+import { IAnimation, Easing } from "./types"
 
-export function animateScroll (id, animate) {
+export function animateScroll (id: string, animate?: IAnimation) {
   const element = id ? document.getElementById(id) : document.body;
-  warning(element, `Cannot find element: #${id}`);
+  if (!element) console.warn(`Cannot find element: #${id}`)
 
   if (!element) {
-    return null;
+    return undefined;
   }
 
-  const { offset, duration, easing } = animate;
+  const {
+    // default animate object
+    offset = 0,
+    duration = 400,
+    easing = easeOutQuad
+  } = animate || {}
+
   const start = getScrollTop();
   const to = getOffsetTop(element) + offset;
   const change = to - start;
 
-  function animateFn (elapsedTime = 0) {
+  const animateFn = (elapsedTime = 0) => {
     const increment = 20;
     const elapsed = elapsedTime + increment;
     const position = easing(null, elapsed, start, change, duration);
     setScrollTop(position);
     elapsed < duration &&
-      setTimeout(function () {
+      setTimeout(() => {
         animateFn(elapsed);
       }, increment);
   }
@@ -29,7 +34,11 @@ export function animateScroll (id, animate) {
   return id;
 }
 
-export function updateHistory (id) {
+// Default easing function
+// jQuery easing 'swing'
+const easeOutQuad: Easing = (x, t, b, c, d) => -c * (t /= d) * (t - 2) + b
+
+export function updateHistory (id: string) {
   window.location.hash = id;
 }
 
@@ -38,11 +47,11 @@ function getScrollTop () {
   return document.documentElement.scrollTop || document.body.scrollTop;
 }
 
-function setScrollTop (position) {
+function setScrollTop (position: number) {
   document.documentElement.scrollTop = document.body.scrollTop = position;
 }
 
-function getOffsetTop (element) {
+function getOffsetTop (element: Element) {
   const { top } = element.getBoundingClientRect();
   return top + getScrollTop();
 }

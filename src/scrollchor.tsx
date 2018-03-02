@@ -1,67 +1,42 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { animateScroll, updateHistory } from './utils';
+import { animateScroll, updateHistory } from './utils'
+import { IAnimation, IScrollchorProps, BeforeAnimate, AfterAnimate } from './types'
+
 
 export default class Scrollchor extends React.Component {
-  constructor (props) {
-    super(props);
-    this._setup(props);
-    this.simulateClick = this._handleClick;
+  constructor(
+    public props: IScrollchorProps) {
+    super(props)
   }
 
-  static propTypes = {
-    to: PropTypes.string.isRequired,
-    animate: PropTypes.shape({
-      offset: PropTypes.number,
-      duration: PropTypes.number,
-      easing: PropTypes.func
-    }),
-    beforeAnimate: PropTypes.func,
-    afterAnimate: PropTypes.func,
-    disableHistory: PropTypes.bool
+  public simulateClick() {
+    this.handleClick()
   }
 
-  _setup = props => {
-    this._to = (props.to && props.to.replace(/^#/, '')) || '';
-    const {
-      // default animate object
-      offset = 0,
-      duration = 400,
-      easing = easeOutQuad
-    } =
-      props.animate || {};
-    this._animate = { offset, duration, easing };
-    this._beforeAnimate = props.beforeAnimate || function () {};
-    this._afterAnimate = props.afterAnimate || function () {};
-    this._disableHistory = props.disableHistory;
+  private setup(props: IScrollchorProps) {
+    const { to } = props
+    this.simulateClick = this.handleClick;
   }
 
-  _handleClick = event => {
-    this._beforeAnimate(event);
-    event && event.preventDefault();
-    const id = animateScroll(this._to, this._animate);
+  private handleClick(event?: Event) {
+    const { beforeAnimate, to, animate, afterAnimate, disableHistory } = this.props
 
+    if (beforeAnimate) beforeAnimate(event);
+    if (event) event.preventDefault();
+
+    const toNoHash = to.replace(/^#/, "")
+    const id = animateScroll(toNoHash, animate);
     if (id) {
-      this._disableHistory || updateHistory(id);
-      this._afterAnimate(event);
+      if (!disableHistory) updateHistory(id);
+      if (afterAnimate) afterAnimate(event);
     }
   }
 
-  componentWillReceiveProps (props) {
-    this._setup(props);
+  public render () {
+    const { to, children } = this.props
+
+    return children
+      ? <a {children} href={to} onClick={ e => this.handleClick(e) } />
+      : null
   }
-
-  render () {
-    const { to, animate, beforeAnimate, afterAnimate, disableHistory, ...props } = this.props; // eslint-disable-line no-unused-vars
-
-    return !this.props.children
-      ? null
-      : <a {...props} href={'#' + this._to} onClick={this._handleClick} />;
-  }
-}
-
-// Default easing function
-// jQuery easing 'swing'
-function easeOutQuad (x, t, b, c, d) {
-  return -c * (t /= d) * (t - 2) + b;
 }
