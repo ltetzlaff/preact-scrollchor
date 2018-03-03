@@ -1,14 +1,9 @@
-import React from 'react';
+import { h, Component } from "preact"
 import { animateScroll, updateHistory } from './utils'
 import { IAnimation, IScrollchorProps, BeforeAnimate, AfterAnimate } from './types'
 
 
-export default class Scrollchor extends React.Component {
-  constructor(
-    public props: IScrollchorProps) {
-    super(props)
-  }
-
+export default class Scrollchor extends Component <IScrollchorProps, undefined>{
   public simulateClick() {
     this.handleClick()
   }
@@ -36,7 +31,7 @@ export default class Scrollchor extends React.Component {
     const { to, children } = this.props
 
     return children
-      ? <a {children} href={to} onClick={ e => this.handleClick(e) } />
+      ? <a {...children} href={to} onClick={ e => this.handleClick(e) } />
       : null
   }
 }

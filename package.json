@@ -5,7 +5,7 @@
   "files": [
     "lib"
   ],
-  "repository": "https://github.com/bySabi/react-scrollchor.git",
+  "repository": "https://github.com/ltetzlaff/react-scrollchor.git",
   "main": "lib/scrollchor.js",
   "engines": {
     "npm": ">=3.0"
@@ -19,9 +19,9 @@
     "test": "npm run buildOnce && npm run lint && npm run prettier"
   },
   "keywords": [
-    "react",
+    "preact",
     "component",
-    "react-component",
+    "preact-component",
     "scroll",
     "anchor",
     "scrollchor",
@@ -29,13 +29,12 @@
     "animate"
   ],
   "peerDependencies": {
-    "react": ">=15.0.0"
+    "preact": "^8.2.7"
   },
   "dependencies": {
-    "requestanimationframe-timer": "^1.0.2"
+    "preact": "^8.2.7"
   },
   "devDependencies": {
-    "react": "^15.5.4",
     "tslint-lt": "^1.6.1",
     "typescript": "^2.7.2"
   },

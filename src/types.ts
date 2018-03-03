@@ -1,4 +1,4 @@
-import React from "react"
+import { h } from "preact"
 
 export interface IAnimation {
   offset: number
@@ -6,7 +6,7 @@ export interface IAnimation {
   easing: Easing
 }
 
-export type Children = undefined | Jsx.Element | Jsx.Element[]
+export type Children = undefined | JSX.Element | JSX.Element[]
 
 export type Easing = (x: null | {}, t: number, b: number, c: number, d: number) => number
 

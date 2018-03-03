@@ -6,10 +6,10 @@
       "target": "esnext",
       "lib": [ "dom", "scripthost", "esnext" ],
       "sourceMap": true,
-      "declaration": false,
+      "declaration": true,
       "strict": true,
-      "suppressImplicitAnyIndexErrors": true,
-      "jsx": "react"
+      "jsx": "react",
+      "jsxFactory": "h"
     },
     "include": [
         "src/**/*"
