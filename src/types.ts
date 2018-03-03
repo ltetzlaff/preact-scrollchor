@@ -4,12 +4,12 @@ import { h } from "preact"
 export const jsxNone = null
 
 export interface IAnimation {
-  offset: number
-  duration: number
-  easing: Easing
+  offset?: number
+  duration?: number
+  easing?: Easing
 }
 
-export type Children = undefined | JSX.Element | JSX.Element[]
+export type Children = JSX.Element | JSX.Element[]
 
 export type Easing = (
   x: undefined | {},
@@ -29,5 +29,5 @@ export interface IScrollchorProps {
   beforeAnimate?: BeforeAnimate
   afterAnimate?: AfterAnimate
   disableHistory?: boolean
-  children: Children
+  children?: Children
 }

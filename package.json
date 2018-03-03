@@ -7,6 +7,7 @@
   ],
   "repository": "https://github.com/ltetzlaff/react-scrollchor.git",
   "main": "lib/scrollchor.js",
+  "types": "lib/scrollchor.d.ts",
   "engines": {
     "npm": ">=3.0"
   },
