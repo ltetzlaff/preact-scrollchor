@@ -1,8 +1,5 @@
 import { h } from "preact"
 
-// tslint:disable-next-line:no-null-keyword
-export const jsxNone = null
-
 export interface IAnimation {
   offset?: number
   duration?: number

@@ -1,21 +1,10 @@
 import { h, Component } from "preact"
 import { animateScroll, updateHistory } from "./utils"
-import {
-  IAnimation,
-  IScrollchorProps,
-  BeforeAnimate,
-  AfterAnimate,
-  jsxNone
-} from "./types"
+import { IScrollchorProps } from "./types"
 
 export default class Scrollchor extends Component<IScrollchorProps, undefined> {
   public simulateClick() {
     this.handleClick()
-  }
-
-  private setup(props: IScrollchorProps) {
-    const { to } = props
-    this.simulateClick = this.handleClick
   }
 
   private handleClick(event?: Event) {
@@ -43,8 +32,6 @@ export default class Scrollchor extends Component<IScrollchorProps, undefined> {
 
     return children ? (
       <a {...children} href={to} onClick={e => this.handleClick(e)} />
-    ) : (
-      jsxNone
-    )
+    ) : null // tslint:disable-line:no-null-keyword
   }
 }
