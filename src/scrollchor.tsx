@@ -31,7 +31,9 @@ export default class Scrollchor extends Component<IScrollchorProps, undefined> {
     const { to, children } = this.props
 
     return children ? (
-      <a {...children} href={to} onClick={e => this.handleClick(e)} />
+      <a href={to} onClick={e => this.handleClick(e)}>
+        {children}
+      </a>
     ) : null // tslint:disable-line:no-null-keyword
   }
 }
