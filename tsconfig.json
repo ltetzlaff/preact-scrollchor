@@ -3,8 +3,8 @@
     "compilerOptions": {
       "module": "none",
       "moduleResolution": "node",
-      "target": "esnext",
-      "lib": [ "dom", "scripthost", "esnext" ],
+      "target": "es2015",
+      "lib": [ "dom", "scripthost", "es2015" ],
       "sourceMap": true,
       "declaration": true,
       "strict": true,
