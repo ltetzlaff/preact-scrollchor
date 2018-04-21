@@ -1,4 +1,5 @@
 import { IAnimation, Easing } from "./types"
+import { animationFrame } from "./animation-frame"
 
 // Default easing function
 // jQuery easing 'swing'
@@ -23,6 +24,8 @@ function getOffsetTop(element: Element) {
   return top + getScrollTop()
 }
 
+let scrollToken = -1
+
 export function animateScroll(id: string, animate?: IAnimation) {
   const element = id ? document.getElementById(id) : document.body
   if (!element) console.warn(`Cannot find element: #${id}`)
@@ -40,20 +43,21 @@ export function animateScroll(id: string, animate?: IAnimation) {
   } =
     animate || {}
 
+  const startTime = Date.now()
+  scrollToken = startTime
   const start = getScrollTop()
   const to = getOffsetTop(element) + offset
   const change = to - start
 
-  const animateFn = (elapsedTime = 0) => {
-    // tslint:disable-next-line:no-magic-numbers
-    const increment = 20
-    const elapsed = elapsedTime + increment
+  const animateFn = async () => {
+    const elapsed = Date.now() - startTime
     const position = easing(undefined, elapsed, start, change, duration)
     setScrollTop(position)
-    elapsed < duration &&
-      setTimeout(() => {
-        animateFn(elapsed)
-      }, increment)
+    if (elapsed < duration) {
+      await animationFrame()
+      if (scrollToken !== startTime) return
+      animateFn()
+    }
   }
 
   animateFn()
