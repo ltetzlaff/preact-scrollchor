@@ -1,16 +1,18 @@
 {
     "compileOnSave": true,
     "compilerOptions": {
-      "module": "none",
-      "moduleResolution": "node",
-      "target": "es2015",
-      "lib": [ "dom", "scripthost", "es2015" ],
+      "target": "es5",
       "sourceMap": true,
       "declaration": true,
       "strict": true,
+      "lib": [
+        "esnext", "dom"
+      ],
       "jsx": "react",
       "jsxFactory": "h",
-      "outDir": "lib"
+      "outDir": "lib",
+      "esModuleInterop": true,
+      "allowSyntheticDefaultImports": true
     },
     "include": [
         "src/**/*"
