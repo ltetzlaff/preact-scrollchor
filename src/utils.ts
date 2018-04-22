@@ -10,18 +10,17 @@ export function updateHistory(id: string) {
   window.location.hash = id
 }
 
-function getScrollTop() {
+function getScroll() {
   // like jQuery -> $('html, body').scrollTop
   return document.documentElement.scrollTop || document.body.scrollTop
 }
 
-function setScrollTop(position: number) {
+function scroll(position: number) {
   document.documentElement.scrollTop = document.body.scrollTop = position
 }
 
 function getOffsetTop(element: Element) {
-  const { top } = element.getBoundingClientRect()
-  return top + getScrollTop()
+  return element.getBoundingClientRect().top
 }
 
 let scrollToken = -1
@@ -45,15 +44,14 @@ export function animateScroll(id: string, animate?: IAnimation) {
 
   const startTime = Date.now()
   scrollToken = startTime
-  const start = getScrollTop()
-  const to = getOffsetTop(element) + offset
-  const change = to - start
+  const s0 = getScroll()
+  const change = getOffsetTop(element) + offset
 
   const animateFn = async () => {
-    const elapsed = Date.now() - startTime
-    const position = easing(undefined, elapsed, start, change, duration)
-    setScrollTop(position)
-    if (elapsed < duration) {
+    const dt = Date.now() - startTime
+    const position = easing(undefined, dt, s0, change, duration)
+    scroll(position)
+    if (dt < duration) {
       await animationFrame()
       if (scrollToken !== startTime) return
       animateFn()
