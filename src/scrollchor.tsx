@@ -22,7 +22,11 @@ export default class Scrollchor extends Component<IScrollchorProps, undefined> {
     const toNoHash = to.replace(/^#/, "")
     const id = animateScroll(toNoHash, animate)
     if (id) {
-      if (!disableHistory) updateHistory(id)
+      if (disableHistory) {
+        updateHistory("")
+      } else {
+        updateHistory(id)
+      }
       if (afterAnimate) afterAnimate(event)
     }
   }
