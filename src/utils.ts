@@ -6,8 +6,17 @@ import { animationFrame } from "./animation-frame"
 // tslint:disable-next-line:no-magic-numbers
 const easeOutQuad: Easing = (x, t, b, c, d) => -c * (t /= d) * (t - 2) + b
 
-export function updateHistory(id: string) {
-  window.location.hash = id
+function removeHash() {
+  const [ url ] = window.location.toString().split("#")
+  window.history.replaceState({}, document.title, url)
+}
+
+export function updateHistory(id?: string) {
+  if (id) {
+    window.location.hash = id
+  } else {
+    removeHash()
+  }
 }
 
 function getScroll() {

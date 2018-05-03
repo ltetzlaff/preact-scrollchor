@@ -23,7 +23,7 @@ export default class Scrollchor extends Component<IScrollchorProps, undefined> {
     const id = animateScroll(toNoHash, animate)
     if (id) {
       if (disableHistory) {
-        updateHistory("")
+        updateHistory()
       } else {
         updateHistory(id)
       }
