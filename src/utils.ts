@@ -7,7 +7,7 @@ import { animationFrame } from "./animation-frame"
 const easeOutQuad: Easing = (x, t, b, c, d) => -c * (t /= d) * (t - 2) + b
 
 function removeHash() {
-  const [ url ] = window.location.toString().split("#")
+  const [url] = window.location.toString().split("#")
   window.history.replaceState({}, document.title, url)
 }
 

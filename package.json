@@ -1,11 +1,11 @@
 {
-  "name": "react-scrollchor",
+  "name": "preact-scrollchor",
   "version": "4.2.2",
-  "description": "A React component for scroll to #hash links with smooth animations",
+  "description": "A Preact component for scroll to #hash links with smooth animations",
   "files": [
     "lib"
   ],
-  "repository": "https://github.com/ltetzlaff/react-scrollchor.git",
+  "repository": "https://github.com/ltetzlaff/preact-scrollchor.git",
   "main": "lib/scrollchor.js",
   "types": "lib/scrollchor.d.ts",
   "engines": {
