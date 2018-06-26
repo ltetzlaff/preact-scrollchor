@@ -1,6 +1,6 @@
 {
   "name": "preact-scrollchor",
-  "version": "4.2.2",
+  "version": "4.3.0",
   "description": "A Preact component for scroll to #hash links with smooth animations",
   "files": [
     "lib"
