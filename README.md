@@ -5,7 +5,7 @@
 
 `hash` is the `id` of a HTML tag on current page.
 
-> If you"re a react-person definitely check out the original version, I mainly didn"t want to bother adding `preact-compat` and disliked quite a few aspects of the implementation.
+> If you're a react-person definitely check out the original version, I mainly didn't want to bother adding `preact-compat` and disliked quite a few aspects of the implementation.
 
 ## Installation
 
