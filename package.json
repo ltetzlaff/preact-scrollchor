@@ -13,7 +13,7 @@
     "build": "tsc --watch || true",
     "buildOnce": "tsc",
     "lint": "tslint --format stylish --project .",
-    "prettier": "prettier --config node_modules/tslint-lt/.prettierrc.yml --write \"{,!node_modules/}**/*.{ts,tsx}\"",
+    "prettier": "prettier --config node_modules/tslint-lt/.prettierrc.yml --write \"{,!node_modules/}**/*.{ts,tsx,css,scss,html,js,jsx,yml,json,md}\"",
     "test": "npm run buildOnce && npm run lint && npm run prettier"
   },
   "keywords": [
@@ -27,14 +27,14 @@
     "animate"
   ],
   "peerDependencies": {
-    "preact": "^8.2.7"
+    "preact": "^8.4.2"
   },
   "dependencies": {
-    "preact": "^8.2.7"
+    "preact": "^8.4.2"
   },
   "devDependencies": {
-    "tslint-lt": "^1.6.1",
-    "typescript": "^2.7.2"
+    "tslint-lt": "^1.8.0",
+    "typescript": "^3.3.3333"
   },
   "contributors": [
     "bySabi Files",
