@@ -1,7 +1,3 @@
-lib
-
-# npm debug file
-npm-debug.log
-
+dist
 node_modules
-package-lock.json*
+package-lock.json

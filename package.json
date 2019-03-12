@@ -3,14 +3,11 @@
   "version": "4.3.0",
   "description": "A Preact component for scroll to #hash links with smooth animations",
   "files": [
-    "lib"
+    "dist"
   ],
   "repository": "https://github.com/ltetzlaff/preact-scrollchor.git",
-  "main": "lib/scrollchor.js",
-  "types": "lib/scrollchor.d.ts",
-  "engines": {
-    "npm": ">=3.0"
-  },
+  "main": "dist/scrollchor.js",
+  "types": "dist/scrollchor.d.ts",
   "scripts": {
     "prepare": "npm run buildOnce",
     "build": "tsc --watch || true",

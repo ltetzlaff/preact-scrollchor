@@ -1,3 +1,6 @@
 {
-	"extends": "tslint-lt"
+  "extends": "tslint-lt",
+  "rules": {
+    "no-null-keyword": false
+  }
 }

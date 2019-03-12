@@ -18,16 +18,18 @@ npm install preact-scrollchor --save
 ```jsx
 import Scrollchor from "preact-scrollchor"
 
-export default (props) => (
+export default props => (
   <div>
     <ul>
-      <li><Scrollchor to="#sample-code">Sample</Scrollchor></li>
-      <li><Scrollchor to="footer">SignUp</Scrollchor></li>
+      <li>
+        <Scrollchor to="#sample-code">Sample</Scrollchor>
+      </li>
+      <li>
+        <Scrollchor to="footer">SignUp</Scrollchor>
+      </li>
     </ul>
-    <div id="sample-code">
-    </div>
-    <footer id="footer">
-    </footer>
+    <div id="sample-code" />
+    <footer id="footer" />
   </div>
 )
 ```
@@ -37,7 +39,9 @@ export default (props) => (
 Animation behavior can be customized:
 
 ```jsx
-<Scrollchor to="#aboutus" animate={{offset: 20, duration: 600}}>Home</Scrollchor>
+<Scrollchor to="#aboutus" animate={{ offset: 20, duration: 600 }}>
+  Home
+</Scrollchor>
 ```
 
 ### Default animation settings
@@ -45,19 +49,23 @@ Animation behavior can be customized:
 ```js
 { offset: 0, duration: 400, easing: easeOutQuad }
 ```
+
 This setting is equivalent to default jQuery.animate `easing: swing`
 
 ### More `Easing` functions
 
-* [jQuery easings](http://api.jqueryui.com/easings/)
-* [Robert Penner's Easing Functions](http://robertpenner.com/easing/)
-* [Javascript source code](https://github.com/danro/jquery-easing/blob/master/jquery.easing.js)
+- [jQuery easings](http://api.jqueryui.com/easings/)
+- [Robert Penner's Easing Functions](http://robertpenner.com/easing/)
+- [Javascript source code](https://github.com/danro/jquery-easing/blob/master/jquery.easing.js)
 
 ## `before` and `after` Animate callbacks
 
 Use this callbacks to trigger behaviours like, for example, update state, load async stuffs, etc.
+
 ```jsx
-<Scrollchor to="#aboutus" afterAnimate={() => updateState(this)}>Home</Scrollchor>
+<Scrollchor to="#aboutus" afterAnimate={() => updateState(this)}>
+  Home
+</Scrollchor>
 ```
 
 ## Simulate click API
@@ -68,4 +76,4 @@ Scrollchor includes a dedicated API to invoke the scroll behavior programmatical
 
 [ISC][isc-license]
 
-[isc-license]:./LICENSE
+[isc-license]: ./LICENSE

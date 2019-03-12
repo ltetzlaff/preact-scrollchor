@@ -1,20 +1,16 @@
 {
-    "compileOnSave": true,
-    "compilerOptions": {
-      "target": "es5",
-      "sourceMap": true,
-      "declaration": true,
-      "strict": true,
-      "lib": [
-        "esnext", "dom"
-      ],
-      "jsx": "react",
-      "jsxFactory": "h",
-      "outDir": "lib",
-      "esModuleInterop": true,
-      "allowSyntheticDefaultImports": true
-    },
-    "include": [
-        "src/**/*"
-    ]
+  "compileOnSave": true,
+  "compilerOptions": {
+    "target": "es5",
+    "sourceMap": true,
+    "declaration": true,
+    "strict": true,
+    "lib": ["esnext", "dom"],
+    "jsx": "react",
+    "jsxFactory": "h",
+    "outDir": "dist",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true
+  },
+  "include": ["src/**/*"]
 }
