@@ -1,8 +1,8 @@
-import { h, Component } from "preact"
+import { h, Component, RenderableProps } from "preact"
 import { animateScroll, updateHistory } from "./utils"
 import { IScrollchorProps } from "./types"
 
-export default class Scrollchor extends Component<IScrollchorProps, {}> {
+export default class Scrollchor extends Component<RenderableProps<IScrollchorProps>, {}> {
   public simulateClick() {
     this.handleClick()
   }
@@ -31,7 +31,7 @@ export default class Scrollchor extends Component<IScrollchorProps, {}> {
     }
   }
 
-  public render({ to, children }: IScrollchorProps) {
+  public render({ to, children }: RenderableProps<IScrollchorProps>) {
     return children ? (
       <a href={to} onClick={e => this.handleClick(e)}>
         {children}

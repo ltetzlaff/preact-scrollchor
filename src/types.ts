@@ -6,8 +6,6 @@ export interface IAnimation {
   easing?: Easing
 }
 
-export type Children = JSX.Element | JSX.Element[]
-
 export type Easing = (
   x: undefined | {},
   t: number,
@@ -26,5 +24,4 @@ export interface IScrollchorProps {
   beforeAnimate?: BeforeAnimate
   afterAnimate?: AfterAnimate
   disableHistory?: boolean
-  children?: Children
 }
