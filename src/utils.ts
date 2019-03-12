@@ -4,7 +4,7 @@ import { animationFrame } from "./animation-frame"
 // Default easing function
 // jQuery easing 'swing'
 // tslint:disable-next-line:no-magic-numbers
-const easeOutQuad: Easing = (x, t, b, c, d) => -c * (t /= d) * (t - 2) + b
+const easeOutQuad: Easing = (_, t, b, c, d) => -c * (t /= d) * (t - 2) + b
 
 function removeHash() {
   const [url] = window.location.toString().split("#")
@@ -36,9 +36,8 @@ let scrollToken = -1
 
 export function animateScroll(id: string, animate?: IAnimation) {
   const element = id ? document.getElementById(id) : document.body
-  if (!element) console.warn(`Cannot find element: #${id}`)
-
   if (!element) {
+    console.warn(`Cannot find element: #${id}`)
     return undefined
   }
 
@@ -48,8 +47,7 @@ export function animateScroll(id: string, animate?: IAnimation) {
     // tslint:disable-next-line:no-magic-numbers
     duration = 400,
     easing = easeOutQuad
-  } =
-    animate || {}
+  } = animate || {}
 
   const startTime = Date.now()
   scrollToken = startTime
